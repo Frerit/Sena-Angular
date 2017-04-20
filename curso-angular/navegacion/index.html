@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="navegacion">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mi aplicación</title>
+    <meta name="viewport" content="width=device-width">
+    
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+
+    <script src="../angular.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    
+    <script src="../angular-route.min.js"></script>  
+
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/inicio.js"></script>
+    <script src="scripts/mapa.js"></script>
+    <script src="scripts/menu.js"></script>
+    
+</head>
+
+<body>
+
+    <header class="navbar navbar-default" ng-controller="Menu">
+
+
+        <div class="container">
+
+
+            <nav role="navigation" id="navegacion" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li ng-class="{active:isActive('/')}">
+                        <a href="#">Inicio</a>
+                    </li>
+                    <li ng-class="{active:isActive('/galeria')}">
+                        <a href="#galeria">Galería</a>
+                    </li>
+                    <li ng-class="{active:isActive('/mapa')}">
+                        <a href="#mapa">Mapa</a>
+                    </li>
+                    <li ng-class="{active:isActive('/contacto')}">
+                        <a href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    
+    <div class="container" ng-view>
+
+
+    </div>
+    
+</body>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html ng-app="miapp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Angular</title>
+	
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+
+	<script src="../angular.min.js"></script>
+</head>
+<body ng-cloak ng-controller="ctrlValidacion">
+
+	<h1 ng-bind="'Probando Angular. Resultado Suma: ' + (2+2) | uppercase">
+		Cargando ...
+	</h1>
+
+	<div class="container">
+		
+		<div class="row" ng-hide="bananosOK">
+			
+			<div class="col-md-6 col-md-offset-3">
+				
+				<form class="form-horizontal" id="formulario" name="formulario" novalidate>
+					<fieldset>
+
+						<!-- Form Name -->
+						<legend>
+							{{nombreAplicacion}}
+						</legend>
+
+						<!-- Text input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="txtNombre">Nombre</label>  
+							<div class="col-md-4">
+								<input id="txtNombre" name="txtNombre" type="text" placeholder="Ejm: Yhoan Galeano" class="form-control input-md" required ng-model="orden.nombre">
+
+							</div>
+						</div>
+
+						<!-- Text input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="txtEmail">Correo Electrónico</label>  
+							<div class="col-md-4">
+								<input id="txtEmail" name="txtEmail" type="email" placeholder="Ejm: yhoangaleano@gmail.com" class="form-control input-md" required ng-model="orden.email">
+
+							</div>
+						</div>
+
+						<!-- Text input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="txtCantidad">Cantidad {{orden.cantidad}} </label>  
+							<div class="col-md-4">
+								<input id="txtCantidad" name="txtCantidad" type="range" placeholder="Ejm: 10" min="1" max="10" step="1" ng-model="orden.cantidad">
+
+							</div>
+						</div>
+
+						<!-- Button -->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="btnGuardar"></label>
+							<div class="col-md-4">
+								<button id="btnGuardar" name="btnGuardar" ng-class="formulario.$invalid == true ? 'btn btn-default' : 'btn btn-success' " ng-disabled="formulario.$invalid" ng-click="validate()" >Guardar</button>
+							</div>
+						</div>
+
+					</fieldset>
+				</form>
+
+			</div>
+
+		</div>
+
+		<div class="row" ng-show="bananosOK">
+
+			<h1>Su orden de bananos es:</h1>
+
+			<div class="col-md-12 well">
+
+				<h1>Su nombre es: {{orden.nombre}} </h1>
+				<h1>Su correo electrónico es: {{orden.email}}</h1>
+				<h1>La cantidad de bananos a pedir es: {{orden.cantidad}}</h1>
+
+			</div>
+		</div>
+
+	</div>
+	
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+
+	<script>
+
+		var miapp = angular.module("miapp", []);
+
+		miapp.controller('ctrlValidacion', function($scope){
+			
+			$scope.nombreAplicacion = "Bananos online";
+
+			$scope.orden = {
+				cantidad: 1
+			};
+
+			$scope.validate = function(){
+
+				if (!formulario.$invalid) {
+					$scope.bananosOK = true;
+				}
+
+			}
+
+		});
+
+	</script>
+</body>
+</html>

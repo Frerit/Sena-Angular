@@ -1,0 +1,3 @@
+jornaleros.controller('Error', function(){
+	
+});

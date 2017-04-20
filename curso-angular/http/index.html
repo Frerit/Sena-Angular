@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="jornaleros">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Finca el berriondo</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+
+	<script src="../angular.min.js"></script>
+	<script src="../angular-route.min.js"></script>
+
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+
+	<script src="app.js"></script>
+
+	<script src="controllers/Inicio.js"></script>
+	<script src="controllers/Detalle.js"></script>
+	<script src="controllers/Error.js"></script>
+
+
+	<style>
+		.img-perfil{
+			width: 80px;
+			height: 80px;
+		}
+	</style>
+
+
+</head>
+<body>
+
+	<header class="navbar navbar-default">
+
+		<a href="#">Finca El Berriondo</a>
+	</header>
+
+
+	<div class="container" ng-view>
+
+
+	</div>
+	
+</body>
+</html>
